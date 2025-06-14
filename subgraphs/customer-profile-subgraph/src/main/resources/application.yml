@@ -1,0 +1,44 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: customer-profile-subgraph
+
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    schema:
+      printer:
+        enabled: true
+    http:
+      path: /graphql
+
+logging:
+  level:
+    root: INFO
+    com.enterprise.customer360: DEBUG
+    org.springframework.graphql: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# CRM API Configuration (Mock Legacy System)
+crm:
+  api:
+    base-url: ${CRM_API_URL:http://localhost:5001}
+    timeout: 5000
+
+# Federation Configuration
+apollo:
+  federation:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
