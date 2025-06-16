@@ -84,9 +84,27 @@ async function startGateway() {
 
         // Middleware
         app.use(cors({
-            origin: '*',
+            origin: [
+                'http://localhost:4000',                 // Local query UI
+                'http://localhost:3000',                 // If frontend runs here
+                'https://studio.apollographql.com'       // Apollo Studio web UI
+            ],
             credentials: true,
+            methods: ['GET', 'POST', 'OPTIONS'],
+            allowedHeaders: [
+                'content-type',
+                'apollographql-client-name',
+                'apollographql-client-version',
+                'x-apollo-operation-name',
+                'x-apollo-tracing'
+            ]
         }));
+
+        app.use((_, res, next) => {
+            res.setHeader('Access-Control-Allow-Private-Network', 'true');
+            next();
+        });
+
         app.use(express.json());
 
         // Health check endpoint
