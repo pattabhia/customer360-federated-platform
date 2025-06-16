@@ -22,7 +22,7 @@ const logger = createLogger();
  */
 
 // Port configuration
-const PORT = process.env.GATEWAY_PORT || 4001;
+const PORT = process.env.GATEWAY_PORT || 4000;
 
 async function startGateway() {
     logger.info('🚀 Starting Apollo Federation Gateway...');

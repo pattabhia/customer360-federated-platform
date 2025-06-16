@@ -1,101 +1,38 @@
-# Customer Profile Subgraph Schema
-# Uses Apollo Federation directives
+# --- optional if you’re on Fed v2; keep @key if your federation library registers directives ---
+# extend schema
+#   @link(
+#     url: "https://specs.apollo.dev/federation/v2.6"
+#     import: ["@key", "@shareable", "@provides", "@requires", "@external"]
+#   )
 
-"""
-Customer entity - The core entity for federation
-"""
 type Customer @key(fields: "customerId") {
-    """Unique customer identifier"""
-    customerId: ID!
-    
-    """Customer's first name"""
-    firstName: String!
-    
-    """Customer's last name"""
-    lastName: String!
-    
-    """Customer's email address"""
-    email: String!
-    
-    """Customer's phone number"""
-    phone: String
-    
-    """Customer's date of birth"""
-    dateOfBirth: String
-    
-    """Customer's address"""
-    address: Address!
-    
-    """Customer segment (PLATINUM, GOLD, SILVER, BRONZE)"""
-    segment: CustomerSegment!
-    
-    """Customer account status"""
-    status: CustomerStatus!
-    
-    """Customer lifetime value in dollars"""
-    lifetimeValue: Float!
-    
-    """Customer risk score (0-100, higher = more risk)"""
-    riskScore: Int!
-    
-    """Account creation timestamp"""
-    createdAt: String!
-    
-    """Last update timestamp"""
-    lastUpdated: String!
+  customerId: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String
+  dateOfBirth: String
+  address: Address!
+  segment: CustomerSegment!
+  status: CustomerStatus!
+  lifetimeValue: Float!
+  riskScore: Int!
+  createdAt: String!
+  lastUpdated: String!
 }
 
-"""
-Customer's address information
-"""
 type Address {
-    """Street address"""
-    street: String!
-    
-    """City"""
-    city: String!
-    
-    """State or province"""
-    state: String!
-    
-    """Postal/ZIP code"""
-    zipCode: String!
-    
-    """Country"""
-    country: String!
+  street: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  country: String!
 }
 
-"""
-Customer segment enum
-"""
-enum CustomerSegment {
-    PLATINUM
-    GOLD
-    SILVER
-    BRONZE
-}
+enum CustomerSegment { PLATINUM GOLD SILVER BRONZE }
+enum CustomerStatus  { ACTIVE INACTIVE SUSPENDED VIP }
 
-"""
-Customer status enum
-"""
-enum CustomerStatus {
-    ACTIVE
-    INACTIVE
-    SUSPENDED
-    VIP
-}
-
-"""
-Query operations for Customer
-"""
 type Query {
-    """
-    Get customer by ID
-    """
-    customer(customerId: ID!): Customer
-    
-    """
-    Search customers by name or email
-    """
-    searchCustomers(query: String!): [Customer!]!
+  customer(customerId: ID!): Customer
+  searchCustomers(query: String!): [Customer!]!
 }
