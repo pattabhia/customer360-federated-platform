@@ -1,6 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloGateway, IntrospectAndCompose } from '@apollo/gateway';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import express from 'express';
 import cors from 'cors';
 import { config } from './config/subgraphs.js';
@@ -45,8 +46,15 @@ async function startGateway() {
         logger.info('Creating Apollo Server...');
         const server = new ApolloServer({
             gateway,
+            // Enable introspection for Studio
+            introspection: true,
             // Plugins for enhanced functionality
             plugins: [
+                // Enable Apollo Studio Explorer in development
+                ApolloServerPluginLandingPageLocalDefault({
+                    embed: true,
+                    includeCookies: true,
+                }),
                 {
                     // Log requests
                     async requestDidStart() {
@@ -58,8 +66,6 @@ async function startGateway() {
                     },
                 },
             ],
-            // Enable introspection and playground
-            introspection: true,
             // Format errors
             formatError: (error) => {
                 logger.error('GraphQL error details:', error);
@@ -73,6 +79,8 @@ async function startGateway() {
                     },
                 };
             },
+            // CRITICAL: Enable CORS for Apollo Studio
+            csrfPrevention: false,
         });
 
         // Start server
@@ -82,30 +90,23 @@ async function startGateway() {
         // Setup Express
         const app = express();
 
-        // Middleware
+        // ENHANCED CORS Configuration for Apollo Studio
         app.use(cors({
-            origin: [
-                'http://localhost:4000',                 // Local query UI
-                'http://localhost:3000',                 // If frontend runs here
-                'https://studio.apollographql.com'       // Apollo Studio web UI
-            ],
-            credentials: true,
+            origin: '*', // Allow all origins (including Apollo Studio)
             methods: ['GET', 'POST', 'OPTIONS'],
             allowedHeaders: [
-                'content-type',
-                'apollographql-client-name',
-                'apollographql-client-version',
+                'Content-Type',
+                'Authorization',
+                'apollo-require-preflight',
                 'x-apollo-operation-name',
-                'x-apollo-tracing'
-            ]
+                'apollo-query-plan-experimental',
+            ],
+            credentials: true,
+            exposedHeaders: ['*'],
         }));
 
-        app.use((_, res, next) => {
-            res.setHeader('Access-Control-Allow-Private-Network', 'true');
-            next();
-        });
-
-        app.use(express.json());
+        // Parse JSON bodies
+        app.use(express.json({ limit: '10mb' }));
 
         // Health check endpoint
         app.get('/health', (req, res) => {
@@ -136,7 +137,7 @@ async function startGateway() {
             });
         });
 
-        // GraphQL endpoint
+        // GraphQL endpoint with proper headers
         app.use(
             '/graphql',
             expressMiddleware(server, {
@@ -147,6 +148,11 @@ async function startGateway() {
             })
         );
 
+        // Root endpoint - redirect to /graphql
+        app.get('/', (req, res) => {
+            res.redirect('/graphql');
+        });
+
         // Start Express server
         app.listen(PORT, () => {
             logger.info('');
@@ -155,8 +161,10 @@ async function startGateway() {
             logger.info('║        Apollo Federation Gateway - STARTED! ✅              ║');
             logger.info('║                                                              ║');
             logger.info(`║  GraphQL Endpoint:  http://localhost:${PORT}/graphql           ║`);
-            logger.info(`║  Apollo Sandbox:    https://studio.apollographql.com/sandbox║`);
-            logger.info(`║                     ?endpoint=http://localhost:${PORT}/graphql║`);
+            logger.info('║                                                              ║');
+            logger.info('║  🌐 OPEN IN BROWSER: http://localhost:4000/graphql          ║');
+            logger.info('║     (Built-in Apollo Studio Explorer)                       ║');
+            logger.info('║                                                              ║');
             logger.info(`║  Health Check:      http://localhost:${PORT}/health            ║`);
             logger.info(`║  Info:              http://localhost:${PORT}/info              ║`);
             logger.info('║                                                              ║');
@@ -176,6 +184,8 @@ async function startGateway() {
             logger.info('║  }                                                           ║');
             logger.info('║                                                              ║');
             logger.info('╚══════════════════════════════════════════════════════════════╝');
+            logger.info('');
+            logger.info('💡 TIP: Open http://localhost:4000/graphql in your browser!');
             logger.info('');
         });
 
