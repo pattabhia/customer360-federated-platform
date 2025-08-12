@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "Customer360 - Mock Legacy APIs",
+    "description": "Collection for testing mock legacy system APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "CRM - Get Customer",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/customers/CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "customers", "CUST001"]
+        }
+      }
+    },
+    {
+      "name": "CRM - Search Customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/customers/search?query=john",
+          "host": ["{{base_url}}"],
+          "path": ["api", "customers", "search"],
+          "query": [{ "key": "query", "value": "john" }]
+        }
+      }
+    },
+    {
+      "name": "Orders - Get Customer Orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/orders?customerId=CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "orders"],
+          "query": [{ "key": "customerId", "value": "CUST001" }]
+        }
+      }
+    },
+    {
+      "name": "Orders - Get Order Statistics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/orders/stats/CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "orders", "stats", "CUST001"]
+        }
+      }
+    },
+    {
+      "name": "Billing - Get Customer Invoices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/invoices?customerId=CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "invoices"],
+          "query": [{ "key": "customerId", "value": "CUST001" }]
+        }
+      }
+    },
+    {
+      "name": "Billing - Get Overdue Invoices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/invoices?customerId=CUST001&status=OVERDUE",
+          "host": ["{{base_url}}"],
+          "path": ["api", "invoices"],
+          "query": [
+            { "key": "customerId", "value": "CUST001" },
+            { "key": "status", "value": "OVERDUE" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Billing - Get Billing Summary",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/billing/summary/CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "billing", "summary", "CUST001"]
+        }
+      }
+    },
+    {
+      "name": "Support - Get Customer Tickets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tickets?customerId=CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tickets"],
+          "query": [{ "key": "customerId", "value": "CUST001" }]
+        }
+      }
+    },
+    {
+      "name": "Support - Get Open Tickets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tickets?customerId=CUST001&status=OPEN",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tickets"],
+          "query": [
+            { "key": "customerId", "value": "CUST001" },
+            { "key": "status", "value": "OPEN" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Support - Get Ticket Statistics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tickets/stats/CUST001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tickets", "stats", "CUST001"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

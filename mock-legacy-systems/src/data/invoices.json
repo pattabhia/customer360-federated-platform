@@ -1,0 +1,113 @@
+{
+  "invoices": [
+    {
+      "invoiceId": "INV001",
+      "customerId": "CUST001",
+      "invoiceNumber": "INV-2025-0001",
+      "invoiceDate": "2025-09-15T00:00:00Z",
+      "dueDate": "2025-10-15T00:00:00Z",
+      "amount": 1299.99,
+      "amountPaid": 1299.99,
+      "status": "PAID",
+      "paymentHistory": [
+        {
+          "paymentId": "PAY001",
+          "paymentDate": "2025-09-18T10:30:00Z",
+          "amount": 1299.99,
+          "method": "CREDIT_CARD",
+          "transactionId": "TXN-CC-20250918-001"
+        }
+      ]
+    },
+    {
+      "invoiceId": "INV002",
+      "customerId": "CUST001",
+      "invoiceNumber": "INV-2025-0002",
+      "invoiceDate": "2025-10-01T00:00:00Z",
+      "dueDate": "2025-10-10T00:00:00Z",
+      "amount": 250.0,
+      "amountPaid": 0,
+      "status": "OVERDUE",
+      "paymentHistory": []
+    },
+    {
+      "invoiceId": "INV003",
+      "customerId": "CUST002",
+      "invoiceNumber": "INV-2025-0003",
+      "invoiceDate": "2025-10-01T00:00:00Z",
+      "dueDate": "2025-10-31T00:00:00Z",
+      "amount": 2599.99,
+      "amountPaid": 0,
+      "status": "PENDING",
+      "paymentHistory": []
+    },
+    {
+      "invoiceId": "INV004",
+      "customerId": "CUST002",
+      "invoiceNumber": "INV-2025-0004",
+      "invoiceDate": "2025-07-22T00:00:00Z",
+      "dueDate": "2025-08-22T00:00:00Z",
+      "amount": 449.99,
+      "amountPaid": 449.99,
+      "status": "PAID",
+      "paymentHistory": [
+        {
+          "paymentId": "PAY002",
+          "paymentDate": "2025-07-25T14:20:00Z",
+          "amount": 449.99,
+          "method": "DEBIT_CARD",
+          "transactionId": "TXN-DC-20250725-002"
+        }
+      ]
+    },
+    {
+      "invoiceId": "INV005",
+      "customerId": "CUST003",
+      "invoiceNumber": "INV-2025-0005",
+      "invoiceDate": "2025-09-30T00:00:00Z",
+      "dueDate": "2025-10-30T00:00:00Z",
+      "amount": 159.99,
+      "amountPaid": 0,
+      "status": "PENDING",
+      "paymentHistory": []
+    },
+    {
+      "invoiceId": "INV006",
+      "customerId": "CUST004",
+      "invoiceNumber": "INV-2025-0006",
+      "invoiceDate": "2025-10-05T00:00:00Z",
+      "dueDate": "2025-11-05T00:00:00Z",
+      "amount": 79.99,
+      "amountPaid": 0,
+      "status": "PENDING",
+      "paymentHistory": []
+    }
+  ],
+  "customerBilling": {
+    "CUST001": {
+      "outstandingBalance": 250.0,
+      "creditLimit": 5000.0,
+      "availableCredit": 4750.0
+    },
+    "CUST002": {
+      "outstandingBalance": 2599.99,
+      "creditLimit": 10000.0,
+      "availableCredit": 7400.01
+    },
+    "CUST003": {
+      "outstandingBalance": 159.99,
+      "creditLimit": 3000.0,
+      "availableCredit": 2840.01
+    },
+    "CUST004": {
+      "outstandingBalance": 79.99,
+      "creditLimit": 2000.0,
+      "availableCredit": 1920.01
+    },
+    "CUST005": {
+      "outstandingBalance": 0,
+      "creditLimit": 5000.0,
+      "availableCredit": 5000.0
+    }
+  }
+}

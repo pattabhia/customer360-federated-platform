@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  # Mock Legacy Systems (CRM, Order Management, Billing, ServiceNow)
+  mock-apis:
+    build: ./mock-legacy-systems
+    container_name: mock-legacy-apis
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=development
+      - PORT=5001
+    networks:
+      - customer360-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  customer360-network:
+    driver: bridge
+
+volumes:
+  maven-repo:

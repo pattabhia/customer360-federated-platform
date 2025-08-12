@@ -1,0 +1,179 @@
+{
+  "tickets": [
+    {
+      "ticketId": "TKT001",
+      "customerId": "CUST001",
+      "subject": "Billing Dispute - Incorrect Charge",
+      "description": "I was charged $250 but I don't recognize this transaction. Please investigate.",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "createdAt": "2025-10-11T09:15:00Z",
+      "updatedAt": "2025-10-11T09:15:00Z",
+      "assignedTo": {
+        "agentId": "AGT001",
+        "name": "Sarah Johnson",
+        "email": "sarah.johnson@company.com"
+      },
+      "category": "BILLING_ISSUE",
+      "resolution": null,
+      "interactions": [
+        {
+          "timestamp": "2025-10-11T09:15:00Z",
+          "type": "CALL",
+          "channel": "PHONE",
+          "notes": "Customer called to dispute charge. Escalated to billing team.",
+          "agent": {
+            "agentId": "AGT001",
+            "name": "Sarah Johnson"
+          }
+        }
+      ]
+    },
+    {
+      "ticketId": "TKT002",
+      "customerId": "CUST001",
+      "subject": "Product Question - Keyboard Compatibility",
+      "description": "Will the mechanical keyboard work with Mac? Need confirmation before purchase.",
+      "priority": "MEDIUM",
+      "status": "IN_PROGRESS",
+      "createdAt": "2025-10-08T14:30:00Z",
+      "updatedAt": "2025-10-09T10:20:00Z",
+      "assignedTo": {
+        "agentId": "AGT002",
+        "name": "Mike Chen",
+        "email": "mike.chen@company.com"
+      },
+      "category": "TECHNICAL_SUPPORT",
+      "resolution": null,
+      "interactions": [
+        {
+          "timestamp": "2025-10-08T14:30:00Z",
+          "type": "CHAT",
+          "channel": "WEB_CHAT",
+          "notes": "Customer inquired about Mac compatibility",
+          "agent": {
+            "agentId": "AGT002",
+            "name": "Mike Chen"
+          }
+        },
+        {
+          "timestamp": "2025-10-09T10:20:00Z",
+          "type": "EMAIL",
+          "channel": "EMAIL",
+          "notes": "Sent compatibility information and setup guide",
+          "agent": {
+            "agentId": "AGT002",
+            "name": "Mike Chen"
+          }
+        }
+      ]
+    },
+    {
+      "ticketId": "TKT003",
+      "customerId": "CUST002",
+      "subject": "Delivery Delay - Order ORD003",
+      "description": "My MacBook was supposed to arrive on Oct 15 but tracking shows delay. When will it arrive?",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "createdAt": "2025-10-12T16:45:00Z",
+      "updatedAt": "2025-10-12T16:45:00Z",
+      "assignedTo": {
+        "agentId": "AGT003",
+        "name": "Lisa Wang",
+        "email": "lisa.wang@company.com"
+      },
+      "category": "COMPLAINT",
+      "resolution": null,
+      "interactions": [
+        {
+          "timestamp": "2025-10-12T16:45:00Z",
+          "type": "EMAIL",
+          "channel": "EMAIL",
+          "notes": "Customer reported delivery delay. Checking with logistics.",
+          "agent": {
+            "agentId": "AGT003",
+            "name": "Lisa Wang"
+          }
+        }
+      ]
+    },
+    {
+      "ticketId": "TKT004",
+      "customerId": "CUST003",
+      "subject": "Account Update - Change Email Address",
+      "description": "Need to update my email address to robert.johnson.new@email.com",
+      "priority": "LOW",
+      "status": "RESOLVED",
+      "createdAt": "2025-10-05T11:20:00Z",
+      "updatedAt": "2025-10-06T09:15:00Z",
+      "assignedTo": {
+        "agentId": "AGT001",
+        "name": "Sarah Johnson",
+        "email": "sarah.johnson@company.com"
+      },
+      "category": "ACCOUNT_MANAGEMENT",
+      "resolution": "Email address updated successfully. Confirmation sent to new email.",
+      "interactions": [
+        {
+          "timestamp": "2025-10-05T11:20:00Z",
+          "type": "CALL",
+          "channel": "PHONE",
+          "notes": "Customer requested email update. Verified identity.",
+          "agent": {
+            "agentId": "AGT001",
+            "name": "Sarah Johnson"
+          }
+        },
+        {
+          "timestamp": "2025-10-06T09:15:00Z",
+          "type": "EMAIL",
+          "channel": "EMAIL",
+          "notes": "Email updated. Confirmation sent.",
+          "agent": {
+            "agentId": "AGT001",
+            "name": "Sarah Johnson"
+          }
+        }
+      ]
+    },
+    {
+      "ticketId": "TKT005",
+      "customerId": "CUST004",
+      "subject": "Feature Request - Mobile App Dark Mode",
+      "description": "Would love to have dark mode in the mobile app. Is this planned?",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "createdAt": "2025-09-20T10:00:00Z",
+      "updatedAt": "2025-09-21T14:30:00Z",
+      "assignedTo": {
+        "agentId": "AGT004",
+        "name": "David Park",
+        "email": "david.park@company.com"
+      },
+      "category": "FEATURE_REQUEST",
+      "resolution": "Forwarded to product team. Dark mode is on roadmap for Q1 2026.",
+      "interactions": [
+        {
+          "timestamp": "2025-09-20T10:00:00Z",
+          "type": "CHAT",
+          "channel": "MOBILE_APP",
+          "notes": "Customer requested dark mode feature",
+          "agent": {
+            "agentId": "AGT004",
+            "name": "David Park"
+          }
+        },
+        {
+          "timestamp": "2025-09-21T14:30:00Z",
+          "type": "EMAIL",
+          "channel": "EMAIL",
+          "notes": "Confirmed feature is on roadmap",
+          "agent": {
+            "agentId": "AGT004",
+            "name": "David Park"
+          }
+        }
+      ]
+    }
+  ]
+}
