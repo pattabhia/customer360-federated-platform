@@ -1,0 +1,101 @@
+# Customer Profile Subgraph Schema
+# Uses Apollo Federation directives
+
+"""
+Customer entity - The core entity for federation
+"""
+type Customer @key(fields: "customerId") {
+    """Unique customer identifier"""
+    customerId: ID!
+    
+    """Customer's first name"""
+    firstName: String!
+    
+    """Customer's last name"""
+    lastName: String!
+    
+    """Customer's email address"""
+    email: String!
+    
+    """Customer's phone number"""
+    phone: String
+    
+    """Customer's date of birth"""
+    dateOfBirth: String
+    
+    """Customer's address"""
+    address: Address!
+    
+    """Customer segment (PLATINUM, GOLD, SILVER, BRONZE)"""
+    segment: CustomerSegment!
+    
+    """Customer account status"""
+    status: CustomerStatus!
+    
+    """Customer lifetime value in dollars"""
+    lifetimeValue: Float!
+    
+    """Customer risk score (0-100, higher = more risk)"""
+    riskScore: Int!
+    
+    """Account creation timestamp"""
+    createdAt: String!
+    
+    """Last update timestamp"""
+    lastUpdated: String!
+}
+
+"""
+Customer's address information
+"""
+type Address {
+    """Street address"""
+    street: String!
+    
+    """City"""
+    city: String!
+    
+    """State or province"""
+    state: String!
+    
+    """Postal/ZIP code"""
+    zipCode: String!
+    
+    """Country"""
+    country: String!
+}
+
+"""
+Customer segment enum
+"""
+enum CustomerSegment {
+    PLATINUM
+    GOLD
+    SILVER
+    BRONZE
+}
+
+"""
+Customer status enum
+"""
+enum CustomerStatus {
+    ACTIVE
+    INACTIVE
+    SUSPENDED
+    VIP
+}
+
+"""
+Query operations for Customer
+"""
+type Query {
+    """
+    Get customer by ID
+    """
+    customer(customerId: ID!): Customer
+    
+    """
+    Search customers by name or email
+    """
+    searchCustomers(query: String!): [Customer!]!
+}
