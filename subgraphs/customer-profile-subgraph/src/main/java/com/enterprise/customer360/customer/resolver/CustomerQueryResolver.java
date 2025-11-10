@@ -1,34 +1,39 @@
 package com.enterprise.customer360.customer.resolver;
 
-import com.enterprise.customer360.customer.model.Customer;
-import com.enterprise.customer360.customer.service.CustomerService;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
+
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
+import com.enterprise.customer360.customer.model.Customer;
+import com.enterprise.customer360.customer.service.CustomerService;
+
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Customer Query Resolver
- *
+ * 
  * Handles GraphQL queries for customer data.
  * This is where GraphQL queries are mapped to service methods.
  */
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class CustomerQueryResolver {
 
     private final CustomerService customerService;
 
-    public CustomerQueryResolver(CustomerService customerService) {
-        this.customerService = customerService;
+    @PostConstruct
+    public void init() {
         log.info("CustomerQueryResolver initialized");
     }
 
     /**
      * GraphQL Query: customer(customerId: ID!): Customer
-     *
+     * 
      * Fetches a single customer by ID
      */
     @QueryMapping
@@ -44,7 +49,7 @@ public class CustomerQueryResolver {
 
     /**
      * GraphQL Query: searchCustomers(query: String!): [Customer!]!
-     *
+     * 
      * Searches for customers by name or email
      */
     @QueryMapping

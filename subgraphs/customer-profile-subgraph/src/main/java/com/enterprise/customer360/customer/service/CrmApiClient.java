@@ -1,19 +1,22 @@
 package com.enterprise.customer360.customer.service;
 
-import com.enterprise.customer360.customer.dto.CrmCustomerResponse;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import com.enterprise.customer360.customer.dto.CrmCustomerResponse;
+
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * CRM API Client
- *
+ * 
  * Communicates with the legacy CRM system (mock API) to fetch customer data.
  * In production, this would connect to the actual CRM system (e.g., SAP).
  */
@@ -29,12 +32,16 @@ public class CrmApiClient {
             @Value("${crm.api.base-url}") String crmApiBaseUrl) {
         this.restTemplate = restTemplate;
         this.crmApiBaseUrl = crmApiBaseUrl;
+    }
+
+    @PostConstruct
+    public void init() {
         log.info("CRM API Client initialized with base URL: {}", crmApiBaseUrl);
     }
 
     /**
      * Get customer by ID from CRM API
-     *
+     * 
      * @param customerId Customer ID
      * @return Customer response from CRM
      */
@@ -54,7 +61,7 @@ public class CrmApiClient {
 
     /**
      * Search customers by query string
-     *
+     * 
      * @param query Search query (name or email)
      * @return List of matching customers
      */
