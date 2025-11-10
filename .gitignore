@@ -1,0 +1,109 @@
+##############################
+# OS Files
+##############################
+.DS_Store
+Thumbs.db
+node_modules
+npm
+##############################
+# IDE / Editor Files
+##############################
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+##############################
+# Java / Spring / Maven / Gradle
+##############################
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+out/
+**/logs/
+*.log
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# Spring Boot Dev Tools cache
+.spring-boot-devtools.properties
+**/BOOT-INF/
+
+##############################
+# Java Generated files
+##############################
+hs_err_pid*
+replay_pid*
+*.hprof
+
+##############################
+# Node / TypeScript / React
+##############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build output
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Env files (Do NOT commit secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+##############################
+# React / CRA Specific
+##############################
+*.cache
+.eslintcache
+
+##############################
+# Test / Reports
+##############################
+coverage/
+test-results/
+.nyc_output/
+
+##############################
+# Package Managers
+##############################
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# If you use exact versions, uncomment one of them:
+# !package-lock.json
+# !yarn.lock
+# !pnpm-lock.yaml
+commit-all.sh
+commit-plan.txt
+.commit-last-date
+generate-commit-plan.sh

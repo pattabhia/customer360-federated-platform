@@ -1,0 +1,109 @@
+{
+  "customers": [
+    {
+      "customerId": "CUST001",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@email.com",
+      "phone": "+1-555-0123",
+      "dateOfBirth": "1985-06-15",
+      "address": {
+        "street": "123 Main Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94102",
+        "country": "USA"
+      },
+      "segment": "GOLD",
+      "status": "ACTIVE",
+      "lifetimeValue": 15420.5,
+      "riskScore": 65,
+      "createdAt": "2020-01-15T10:30:00Z",
+      "lastUpdated": "2025-10-10T14:20:00Z"
+    },
+    {
+      "customerId": "CUST002",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@email.com",
+      "phone": "+1-555-0124",
+      "dateOfBirth": "1990-03-22",
+      "address": {
+        "street": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90001",
+        "country": "USA"
+      },
+      "segment": "PLATINUM",
+      "status": "ACTIVE",
+      "lifetimeValue": 28750.0,
+      "riskScore": 25,
+      "createdAt": "2019-05-20T08:15:00Z",
+      "lastUpdated": "2025-10-12T09:45:00Z"
+    },
+    {
+      "customerId": "CUST003",
+      "firstName": "Robert",
+      "lastName": "Johnson",
+      "email": "robert.j@email.com",
+      "phone": "+1-555-0125",
+      "dateOfBirth": "1978-11-08",
+      "address": {
+        "street": "789 Pine Road",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": "98101",
+        "country": "USA"
+      },
+      "segment": "SILVER",
+      "status": "ACTIVE",
+      "lifetimeValue": 8320.25,
+      "riskScore": 45,
+      "createdAt": "2021-03-10T12:00:00Z",
+      "lastUpdated": "2025-10-11T16:30:00Z"
+    },
+    {
+      "customerId": "CUST004",
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "email": "emily.davis@email.com",
+      "phone": "+1-555-0126",
+      "dateOfBirth": "1995-07-19",
+      "address": {
+        "street": "321 Elm Street",
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "country": "USA"
+      },
+      "segment": "BRONZE",
+      "status": "ACTIVE",
+      "lifetimeValue": 3210.0,
+      "riskScore": 72,
+      "createdAt": "2022-08-05T14:22:00Z",
+      "lastUpdated": "2025-10-09T11:10:00Z"
+    },
+    {
+      "customerId": "CUST005",
+      "firstName": "Michael",
+      "lastName": "Wilson",
+      "email": "m.wilson@email.com",
+      "phone": "+1-555-0127",
+      "dateOfBirth": "1982-12-30",
+      "address": {
+        "street": "654 Maple Drive",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      },
+      "segment": "GOLD",
+      "status": "INACTIVE",
+      "lifetimeValue": 19850.75,
+      "riskScore": 88,
+      "createdAt": "2018-11-12T09:30:00Z",
+      "lastUpdated": "2025-09-15T13:45:00Z"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "orders": [
+    {
+      "orderId": "ORD001",
+      "customerId": "CUST001",
+      "orderDate": "2025-09-15T10:30:00Z",
+      "status": "DELIVERED",
+      "totalAmount": 1299.99,
+      "items": [
+        {
+          "productId": "PROD101",
+          "productName": "Laptop - Dell XPS 15",
+          "quantity": 1,
+          "unitPrice": 1199.99,
+          "discount": 0
+        },
+        {
+          "productId": "PROD102",
+          "productName": "Wireless Mouse",
+          "quantity": 1,
+          "unitPrice": 49.99,
+          "discount": 0
+        },
+        {
+          "productId": "PROD103",
+          "productName": "USB-C Cable",
+          "quantity": 2,
+          "unitPrice": 25.0,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "123 Main Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94102",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-09-20T00:00:00Z",
+      "actualDelivery": "2025-09-19T14:30:00Z"
+    },
+    {
+      "orderId": "ORD002",
+      "customerId": "CUST001",
+      "orderDate": "2025-08-10T14:20:00Z",
+      "status": "RETURNED",
+      "totalAmount": 89.99,
+      "items": [
+        {
+          "productId": "PROD104",
+          "productName": "Mechanical Keyboard",
+          "quantity": 1,
+          "unitPrice": 89.99,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "123 Main Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94102",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-08-15T00:00:00Z",
+      "actualDelivery": "2025-08-14T10:15:00Z"
+    },
+    {
+      "orderId": "ORD003",
+      "customerId": "CUST002",
+      "orderDate": "2025-10-01T09:45:00Z",
+      "status": "SHIPPED",
+      "totalAmount": 2599.99,
+      "items": [
+        {
+          "productId": "PROD201",
+          "productName": "MacBook Pro 16-inch",
+          "quantity": 1,
+          "unitPrice": 2499.99,
+          "discount": 0
+        },
+        {
+          "productId": "PROD202",
+          "productName": "AppleCare+ Protection",
+          "quantity": 1,
+          "unitPrice": 100.0,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90001",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-10-15T00:00:00Z",
+      "actualDelivery": null
+    },
+    {
+      "orderId": "ORD004",
+      "customerId": "CUST002",
+      "orderDate": "2025-07-22T16:10:00Z",
+      "status": "DELIVERED",
+      "totalAmount": 449.99,
+      "items": [
+        {
+          "productId": "PROD203",
+          "productName": "iPad Air",
+          "quantity": 1,
+          "unitPrice": 449.99,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90001",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-07-27T00:00:00Z",
+      "actualDelivery": "2025-07-26T13:20:00Z"
+    },
+    {
+      "orderId": "ORD005",
+      "customerId": "CUST003",
+      "orderDate": "2025-09-30T11:00:00Z",
+      "status": "CONFIRMED",
+      "totalAmount": 159.99,
+      "items": [
+        {
+          "productId": "PROD301",
+          "productName": "Noise Cancelling Headphones",
+          "quantity": 1,
+          "unitPrice": 159.99,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "789 Pine Road",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": "98101",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-10-18T00:00:00Z",
+      "actualDelivery": null
+    },
+    {
+      "orderId": "ORD006",
+      "customerId": "CUST004",
+      "orderDate": "2025-10-05T08:30:00Z",
+      "status": "PENDING",
+      "totalAmount": 79.99,
+      "items": [
+        {
+          "productId": "PROD401",
+          "productName": "Smartwatch",
+          "quantity": 1,
+          "unitPrice": 79.99,
+          "discount": 0
+        }
+      ],
+      "shippingAddress": {
+        "street": "321 Elm Street",
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "country": "USA"
+      },
+      "estimatedDelivery": "2025-10-20T00:00:00Z",
+      "actualDelivery": null
+    }
+  ]
+}
