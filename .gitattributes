@@ -1,0 +1,50 @@
+# GitHub Language Classification
+# This file tells GitHub what languages are actually used in the project
+
+# Mark documentation as documentation (not code)
+*.md linguist-documentation
+*.txt linguist-documentation
+LICENSE linguist-documentation
+
+# Mark configuration files appropriately
+*.json linguist-language=JSON
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+*.xml linguist-language=XML
+
+# Exclude dependencies from language stats
+**/node_modules/** linguist-vendored
+**/target/** linguist-vendored
+**/.mvn/** linguist-vendored
+**/build/** linguist-vendored
+**/dist/** linguist-vendored
+
+# Mark test files as tests (not main code)
+**/test/** linguist-language=Java
+**/tests/** linguist-language=JavaScript
+**/__tests__/** linguist-language=JavaScript
+*.test.js linguist-language=JavaScript
+*.spec.js linguist-language=JavaScript
+*.test.ts linguist-language=TypeScript
+*.spec.ts linguist-language=TypeScript
+
+# Explicitly mark main languages
+gateway/**/*.js linguist-language=JavaScript
+mock-legacy-systems/**/*.js linguist-language=JavaScript
+subgraphs/**/*.java linguist-language=Java
+frontend/**/*.tsx linguist-language=TypeScript
+frontend/**/*.ts linguist-language=TypeScript
+
+# Mark shell scripts
+*.sh linguist-language=Shell
+
+# Mark Docker files
+Dockerfile linguist-language=Dockerfile
+docker-compose.yml linguist-language=YAML
+
+# Mark Terraform files
+*.tf linguist-language=HCL
+*.tfvars linguist-language=HCL
+
+# Exclude generated files
+**/schema.graphqls linguist-generated=false
